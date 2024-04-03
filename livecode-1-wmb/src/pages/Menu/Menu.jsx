@@ -101,6 +101,7 @@ class Menu extends Component {
     setTimeout(() => {
       const menus = this.state.menus.filter((menu) => menu.id !== id);
       this.props.handleDataMenu(menus);
+      this.setState({menus:menus})
       this.props.hideLoading();
     }, 2000);
   };
@@ -140,6 +141,8 @@ Menu.propTypes={
     isLoading:PropTypes.bool,
     showLoading:PropTypes.func,
     hideLoading: PropTypes.func,
+    handleDataMenu: PropTypes.func,
+    dataMenu: PropTypes.array,
   }
   const MenuComponent = withLoading(Menu);
   export default MenuComponent;

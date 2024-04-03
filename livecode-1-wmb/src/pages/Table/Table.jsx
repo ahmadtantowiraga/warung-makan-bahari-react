@@ -97,7 +97,8 @@ class Table extends Component {
     if (!confirm("Apakah yakin ingin menghapus Table ini?")) return;
     setTimeout(() => {
       const tables = this.state.tables.filter((table) => table.id !== id);
-      this.props.handleDataTable(tables)
+      this.props.handleDataTable(tables);
+      this.setState({tables:tables})
       this.props.hideLoading();
     }, 2000);
   };

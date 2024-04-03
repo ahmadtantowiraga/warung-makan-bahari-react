@@ -68,4 +68,8 @@ export default class Sidebar extends Component {
 Sidebar.propTypes = {
   handlePage: PropTypes.func,
   handleAuthentication: PropTypes.func,
+  dataMenu: PropTypes.array,
+  dataTable:PropTypes.array,
+  handleDataMenu:PropTypes.func,
+  handleDataTable: PropTypes.func,
 };
