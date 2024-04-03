@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { IconTable } from "@tabler/icons-react";
 import { IconMeat } from "@tabler/icons-react";
 import MenuComponent from "../../pages/Menu/Menu";
+import TableComponent from "../../pages/Table/Table";
+import Dasboard from "../../pages/Dasboard/Dasboard";
 
 export default class Sidebar extends Component {
   render() {
@@ -22,7 +24,9 @@ export default class Sidebar extends Component {
         <nav>
           <ul className="d-flex flex-column gap-3 nav-list list-unstyled">
             <p className="fw-bold mt-4">Navigation</p>
-            <li className="cursor-pointer text-white">
+            <li onClick={() => {
+                    this.props.handlePage(<Dasboard />);
+                }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconHome2 />
               </i>
@@ -36,7 +40,9 @@ export default class Sidebar extends Component {
               </i>
               <span>Menu</span>
             </li>
-            <li className="cursor-pointer text-white">
+            <li onClick={() => {
+                    this.props.handlePage(<TableComponent />);
+                }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconTable />
               </i>
