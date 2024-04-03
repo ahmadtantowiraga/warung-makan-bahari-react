@@ -6,6 +6,7 @@ import { IconMeat } from "@tabler/icons-react";
 import MenuComponent from "../../pages/Menu/Menu";
 import TableComponent from "../../pages/Table/Table";
 import Dasboard from "../../pages/Dasboard/Dasboard";
+import Login from "../../pages/Authentication/Login";
 
 export default class Sidebar extends Component {
   render() {
@@ -50,7 +51,9 @@ export default class Sidebar extends Component {
             </li>
 
             <hr />
-            <li className="cursor-pointer text-white">
+            <li onClick={() => {
+                    this.props.handleAuthentication(false);
+                }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconDoorExit />
               </i>
@@ -65,4 +68,5 @@ export default class Sidebar extends Component {
 
 Sidebar.propTypes = {
   handlePage: PropTypes.func,
+  handleAuthentication: PropTypes.func,
 };

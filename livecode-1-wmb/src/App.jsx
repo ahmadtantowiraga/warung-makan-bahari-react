@@ -22,7 +22,9 @@ handlePage=(component) => {
       <>
         {this.state.isAuthenticated ?
               <div className='d-flex'>
-              <Sidebar handlePage={this.handlePage}/>
+              <Sidebar
+               handleAuthentication={this.handleAuthentication}
+              handlePage={this.handlePage}/>
               <main className='w-100 flex-grow-1'>
               
                 {this.state.page}
