@@ -3,6 +3,7 @@ import { IconDoorExit, IconHome2 } from "@tabler/icons-react";
 import PropTypes from "prop-types";
 import { IconTable } from "@tabler/icons-react";
 import { IconMeat } from "@tabler/icons-react";
+import MenuComponent from "../../pages/Menu/Menu";
 
 export default class Sidebar extends Component {
   render() {
@@ -27,7 +28,9 @@ export default class Sidebar extends Component {
               </i>
               <span>Dasboard</span>
             </li>
-            <li className="cursor-pointer text-white">
+            <li onClick={() => {
+                    this.props.handlePage(<MenuComponent />);
+                }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconMeat />
               </i>
@@ -55,5 +58,5 @@ export default class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
-  navigateTo: PropTypes.func,
+  handlePage: PropTypes.func,
 };

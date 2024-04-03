@@ -8,7 +8,7 @@ class App extends Component {
     page:<Dashboard />,
     isAuthenticated: false,
   }
-handleLogin=(component) => {
+handlePage=(component) => {
     this.setState({page: component});
   }
 
@@ -22,7 +22,7 @@ handleLogin=(component) => {
       <>
         {this.state.isAuthenticated ?
               <div className='d-flex'>
-              <Sidebar navigateTo={this.handleLogin}/>
+              <Sidebar handlePage={this.handlePage}/>
               <main className='w-100 flex-grow-1'>
               
                 {this.state.page}
