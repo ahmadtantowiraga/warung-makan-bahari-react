@@ -91,13 +91,11 @@ class Menu extends Component {
           ...this.state.form,
           id: new Date().getMilliseconds().toString(),
         };
-
         menus.push(menu);
         this.setState({ menus: menus });
         this.props.hideLoading();
         console.log(this.state.menus)
       }
-
       this.clearForm();
     }, 2000);
   };
@@ -150,9 +148,6 @@ class Menu extends Component {
         handleSelectedMenu={this.handleSelectedMenu}
       />
         }
-
-
-
       </div>
     );
   }

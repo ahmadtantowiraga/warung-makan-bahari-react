@@ -14,6 +14,7 @@ class Login extends Component {
     alert: false,
     page: false,
   };
+  
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -31,6 +32,7 @@ class Login extends Component {
       },
     });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     if (
@@ -50,14 +52,11 @@ class Login extends Component {
     return (
       <>
         {this.state.alert && (
-          <>
-            <div className="alert alert-primary" role="alert">
+            <div className="alert alert-danger" role="alert">
               username atau password salah
             </div>
-          </>
         )}
         {this.state.page && <Login handleAuthentication={this.props.handleAuthentication}/>}
-
         <div id="form-login">
           <div className="container-fluid">
             <div className="container">

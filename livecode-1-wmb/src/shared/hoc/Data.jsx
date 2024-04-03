@@ -1,19 +1,15 @@
 import { Component } from 'react';
-
-export default function withLoading(WrappedComponent){
+export default function Data(WrappedComponent){
     return class HOC extends Component{
-        state ={
-            isLoading: false,
+        state={
+            dataTable:[],
+            dataMenu:[],
         }
-        handleShowLoading =()=>{
-            this.setState({
-                isLoading: true,
-            })
+        handleDataTable=(data)=>{
+            this.setState({dataTable:this.state.dataTable.push(data)})
         }
-        handleHideLoading=()=>{
-            this.setState({
-                isLoading: false,
-            })
+        handleDataMenu=(data)=>{
+            this.setState({dataMenu:this.state.dataMenu.push(data)})
         }
         render(){
             return (

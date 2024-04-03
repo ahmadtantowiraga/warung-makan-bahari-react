@@ -25,5 +25,10 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+#dasboard{
+  background-image: url('public/makanan.jpg');
+  height:1000px;
+}
+
 
 @import "node_modules/bootstrap/scss/bootstrap";

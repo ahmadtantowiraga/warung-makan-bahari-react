@@ -6,7 +6,6 @@ import { IconMeat } from "@tabler/icons-react";
 import MenuComponent from "../../pages/Menu/Menu";
 import TableComponent from "../../pages/Table/Table";
 import Dasboard from "../../pages/Dasboard/Dasboard";
-import Login from "../../pages/Authentication/Login";
 
 export default class Sidebar extends Component {
   render() {
