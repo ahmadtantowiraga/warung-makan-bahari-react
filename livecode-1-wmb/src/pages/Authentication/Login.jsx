@@ -56,7 +56,7 @@ class Login extends Component {
             </div>
           </>
         )}
-        {this.state.page && <Login />}
+        {this.state.page && <Login handleAuthentication={this.props.handleAuthentication}/>}
 
         <div id="form-login">
           <div className="container-fluid">
@@ -107,7 +107,7 @@ class Login extends Component {
                           type="password"
                           id="password"
                           className={`form-control border-0 border-bottom shadow-none ${
-                            this.state.errors.username && "is-invalid"
+                            this.state.errors.password && "is-invalid"
                           }`}
                         />
                         <div className="invalid-feedback">
