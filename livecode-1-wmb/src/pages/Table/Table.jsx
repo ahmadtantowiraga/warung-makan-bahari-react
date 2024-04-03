@@ -14,27 +14,12 @@ class Table extends Component {
       availability: false,
       
     },
-    tables: [],
+    tables: this.props.dataTable,
     errors: {
       name: "",
     },
   };
 
-  componentDidMount() {
-    this.props.showLoading();
-    setTimeout(() => {
-      this.setState({
-        tables: [
-          {
-            id: "1",
-            name: "Table01",
-            availability: true,
-          },
-        ],
-      });
-      this.props.hideLoading();
-    }, 2000);
-  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -80,16 +65,15 @@ class Table extends Component {
         const index = tables.findIndex((table) => table.id === this.state.form.id);
         const table = { ...this.state.form };
         tables.splice(index, 1, table);
-        this.setState({ tables: tables });
+        this.props.handleDataTable(tables)
         this.props.hideLoading();
       } else {
         const table = {
           ...this.state.form,
           id: new Date().getMilliseconds().toString(),
         };
-
         tables.push(table);
-        this.setState({ tables: tables });
+        this.props.handleDataTable(tables)
         this.props.hideLoading();
         console.log(this.state.tables)
       }
@@ -113,7 +97,7 @@ class Table extends Component {
     if (!confirm("Apakah yakin ingin menghapus Table ini?")) return;
     setTimeout(() => {
       const tables = this.state.tables.filter((table) => table.id !== id);
-      this.setState({ tables: tables });
+      this.props.handleDataTable(tables)
       this.props.hideLoading();
     }, 2000);
   };
@@ -156,6 +140,8 @@ Table.propTypes={
     isLoading:PropTypes.bool,
     showLoading:PropTypes.func,
     hideLoading: PropTypes.func,
+    handleDataTable: PropTypes.func,
+    dataTable:PropTypes.array,
   }
   const TableComponent = withLoading(Table);
   export default TableComponent;

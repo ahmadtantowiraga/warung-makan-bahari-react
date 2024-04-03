@@ -33,7 +33,7 @@ export default class Sidebar extends Component {
               <span>Dasboard</span>
             </li>
             <li onClick={() => {
-                    this.props.handlePage(<MenuComponent />);
+                    this.props.handlePage(<MenuComponent dataMenu={this.props.dataMenu} handleDataMenu={this.props.handleDataMenu}/>);
                 }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconMeat />
@@ -41,7 +41,7 @@ export default class Sidebar extends Component {
               <span>Menu</span>
             </li>
             <li onClick={() => {
-                    this.props.handlePage(<TableComponent />);
+                    this.props.handlePage(<TableComponent dataTable={this.props.dataTable} handleDataTable={this.props.handleDataTable}/>);
                 }} className="cursor-pointer text-white">
               <i className="me-3">
                 <IconTable />

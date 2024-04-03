@@ -18,6 +18,7 @@ export default function withLoading(WrappedComponent){
         render(){
             return (
                 <WrappedComponent
+                {...this.props}
                 isLoading={this.state.isLoading}
                 showLoading={this.handleShowLoading}
                 hideLoading={this.handleHideLoading}

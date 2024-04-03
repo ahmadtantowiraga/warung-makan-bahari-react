@@ -13,29 +13,13 @@ class Menu extends Component {
       price: "",
       status: false,
     },
-    menus: [],
+    menus: this.props.dataMenu,
     errors: {
       name: "",
       price: "",
     },
   };
 
-  componentDidMount() {
-    this.props.showLoading();
-    setTimeout(() => {
-      this.setState({
-        menus: [
-          {
-            id: "1",
-            name: "ikan",
-            price: "10000",
-            status: true,
-          },
-        ],
-      });
-      this.props.hideLoading();
-    }, 2000);
-  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -84,7 +68,7 @@ class Menu extends Component {
         const index = menus.findIndex((menu) => menu.id === this.state.form.id);
         const menu = { ...this.state.form };
         menus.splice(index, 1, menu);
-        this.setState({ menus: menus });
+        this.props.handleDataMenu(menus);
         this.props.hideLoading();
       } else {
         const menu = {
@@ -92,7 +76,7 @@ class Menu extends Component {
           id: new Date().getMilliseconds().toString(),
         };
         menus.push(menu);
-        this.setState({ menus: menus });
+        this.props.handleDataMenu(menus);
         this.props.hideLoading();
         console.log(this.state.menus)
       }
@@ -116,7 +100,7 @@ class Menu extends Component {
     if (!confirm("Apakah yakin ingin menghapus menu ini?")) return;
     setTimeout(() => {
       const menus = this.state.menus.filter((menu) => menu.id !== id);
-      this.setState({ menus: menus });
+      this.props.handleDataMenu(menus);
       this.props.hideLoading();
     }, 2000);
   };
